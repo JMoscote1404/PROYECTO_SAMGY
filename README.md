@@ -2,7 +2,7 @@
 
 **Colegio San Alberto Magno**  
 Versión: `1.0.0` (Node.js + SQLite)  
-Aplicativo web integral y seguro para el registro clínico, control sanitario preventivo, seguimiento de fichas médicas y atención diaria de los estudiantes de la institución.
+Aplicativo web integral y seguro para el registro clínico, control sanitario preventivo, seguimiento de fichas médicas y atención diaria de los estudiantes de la institución San Alberto Magno.
 
 > [!IMPORTANT]
 > **Protección de Datos Sensibles**: Los registros tratados corresponden a **MENORES DE EDAD** y son de carácter clínico y confidencial (Ley 1581 de 2012 / Decreto 1377 de 2013). Todo acceso, consulta y modificación cuenta con auditoría inmutable en base de datos.
