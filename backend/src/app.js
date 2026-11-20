@@ -15,6 +15,9 @@ const __dirname = path.dirname(__filename);
 
 export const app = express();
 
+// Railway pone un proxy delante: necesario para IP real, rate limit y cookies seguras
+app.set('trust proxy', 1);
+
 // 1. Cabeceras de seguridad estrictas con Helmet y CSP compatible con Bootstrap CDN y Google Fonts
 app.use(
   helmet({

@@ -7,6 +7,10 @@
     "setup": "npm --prefix backend install",
     "start": "npm --prefix backend start",
     "dev": "npm --prefix backend run dev",
-    "test": "npm --prefix backend test"
+    "test": "npm --prefix backend test",
+    "postinstall": "npm --prefix backend install --omit=dev"
+  },
+  "engines": {
+    "node": ">=22.5.0"
   }
 }
