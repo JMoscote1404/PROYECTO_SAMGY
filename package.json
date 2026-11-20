@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "setup": "npm --prefix backend install",
+    "postinstall": "npm --prefix backend install --omit=dev",
     "start": "npm --prefix backend start",
     "dev": "npm --prefix backend run dev",
     "test": "npm --prefix backend test"
