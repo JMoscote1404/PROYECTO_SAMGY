@@ -66,15 +66,28 @@ const origenesPermitidos = [
 ];
 
 app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || origenesPermitidos.includes(origin)) {
-        return callback(null, true);
+  (req, res, next) => {
+    // Mismo origen (el navegador envía Origin incluso al pedir los .js del propio sitio):
+    // permitido si el host del Origin coincide con el Host de la petición.
+    const origin = req.headers['origin'];
+    let mismoOrigen = false;
+    if (origin) {
+      try {
+        mismoOrigen = new URL(origin).host === req.headers['host'];
+      } catch {
+        mismoOrigen = false;
       }
-      return callback(new Error('Bloqueado por política de CORS'));
-    },
-    credentials: true
-  })
+    }
+    cors({
+      origin: (o, callback) => {
+        if (!o || mismoOrigen || origenesPermitidos.includes(o)) {
+          return callback(null, true);
+        }
+        return callback(new Error('Bloqueado por política de CORS'));
+      },
+      credentials: true
+    })(req, res, next);
+  }
 );
 
 // 3. Verificación de Origin / Referer para mitigar CSRF en métodos mutables (POST, PUT, PATCH, DELETE)
