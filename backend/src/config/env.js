@@ -15,7 +15,6 @@ const defaultDbPath = path.join(projectRoot, 'database', 'samgy.sqlite');
 
 const envSchema = z.object({
   PORT: z.coerce.number().default(3000),
-  HOST: z.string().default('0.0.0.0'),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   DB_PATH: z.string().min(1).default(defaultDbPath),
   JWT_SECRET: z.string().min(32, 'La variable de entorno JWT_SECRET debe tener al menos 32 caracteres para ser criptográficamente segura.'),

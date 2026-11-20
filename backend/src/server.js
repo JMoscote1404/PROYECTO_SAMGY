@@ -18,9 +18,9 @@ async function iniciarServidor() {
     // 2. Inicializar administrador si no existen usuarios activos
     await authService.inicializarAdminSiNoExiste();
 
-    // 3. Poner a la escucha el servidor (0.0.0.0 es obligatorio en Railway)
-    const server = app.listen(env.PORT, '0.0.0.0', () => {
-      console.log(`\n✅ SAMGY API escuchando activamente en http://0.0.0.0:${env.PORT}`);
+    // 3. Poner a la escucha el servidor
+    const server = app.listen(env.PORT, '127.0.0.1', () => {
+      console.log(`\n✅ SAMGY API escuchando activamente en http://127.0.0.1:${env.PORT}`);
       console.log(`✅ Archivos estáticos de frontend servidos desde ${env.FRONTEND_PATH || '../frontend'}`);
       console.log('=============================================================\n');
     });
